@@ -13,7 +13,7 @@ public:
 		question = str;
 	}
 
-	void doCheck(string testStr) {
+	double doCheck(string testStr) {
 		return;
 	}
 
@@ -36,13 +36,6 @@ public:
 		return ( (double)SameCntDic.size() / (double)TotalCntDic.size()) * 40;
 	}
 
-	bool findCh(vector<char> str, char ch) {
-		for (char c : str) {
-			if (c == ch) return true;
-		}
-		return false;
-	}
-
 	double doLengthCheck(string testStr) {
 		if (question.length() == testStr.length()) return 60;
 		if (question.length() >= testStr.length() * 2 ||
@@ -58,4 +51,11 @@ public:
 	}
 private:
 	string question;
+
+	bool findCh(vector<char> str, char ch) {
+		for (char c : str) {
+			if (c == ch) return true;
+		}
+		return false;
+	}
 };
