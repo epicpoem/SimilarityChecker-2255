@@ -54,6 +54,30 @@ TEST_F(SimilarityCheckerFixture, AlphaTest4) {
 	EXPECT_EQ( ((double)1/(double)2) * 40, ret);
 }
 
+TEST_F(SimilarityCheckerFixture, OverallTest1) {
+	SimilarityChecker checker{ "ASD" };
+	double ret = checker.doCheck("DSA");
+	EXPECT_EQ(100, ret);
+}
+
+TEST_F(SimilarityCheckerFixture, OverallTest2) {
+	SimilarityChecker checker{ "A" };
+	double ret = checker.doCheck("BB");
+	EXPECT_EQ(0, ret);
+}
+
+TEST_F(SimilarityCheckerFixture, OverallTest3) {
+	SimilarityChecker checker{ "AAABB" };
+	double ret = checker.doCheck("BAA");
+	EXPECT_EQ((1-((double)2/(double)3))*60 +40, ret);
+}
+
+TEST_F(SimilarityCheckerFixture, OverallTest4) {
+	SimilarityChecker checker{ "AA" };
+	double ret = checker.doCheck("AAE");
+	EXPECT_EQ((1 - ((double)1 / (double)2)) * 60 + ((double)1 / (double)2) * 40, ret);
+}
+
 int main() {
 	::testing::InitGoogleMock();
 	return RUN_ALL_TESTS();

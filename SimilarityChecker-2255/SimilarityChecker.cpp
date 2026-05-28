@@ -14,7 +14,9 @@ public:
 	}
 
 	double doCheck(string testStr) {
-		return;
+		double lengthChkScore = doLengthCheck(testStr);
+		double alphaChkScore = doAlphaCheck(testStr);
+		return lengthChkScore + alphaChkScore;
 	}
 
 	double doAlphaCheck(string testStr) {
